@@ -1,0 +1,161 @@
+---
+title: "Assignment 0"
+author: "ex-ploit"
+date: '2019-02-13'
+output: html_document
+document: https://cran.r-project.org/doc/contrib/Torfs+Brauer-Short-R-Intro.pdf
+---
+
+This assignment is based on the different ToDo tasks available in the very short introduction to R document. Each task was a practice of different statistical scenarios that can be used in R.
+
+
+
+
+1.Compute the difference between 2014 and the year you started at this university and divide this by the difference between 2014 and the year you were born. Multiply this with 100 to get percentage of your life you have spent at this university
+
+```{r}
+(2017-2014)/(2014-1990)*100
+```
+
+
+2. Repeat the previous ToDo, but with several steps in between. You can give the variables
+any name you want, but the name has to start with a letter
+
+```{r}
+a=2017
+b=1990
+(a-2014)/(2014-b)*100
+```
+
+
+3.Compute the sum of 4, 5, 8 and 11 by first combining them into a vector and then using the function sum.
+
+```{r}
+a=c(4,5,8,11)
+sum(x=a)
+```
+
+
+4.Plot 100 normal random numbers
+
+```{r}
+x=rnorm(100)
+plot(x)
+```
+
+
+5.Find help for the sqrt function.
+
+```{r}
+help(sqrt)
+```
+
+
+6.Make a file called firstscript.R containing Rcode that generates 100 random numbers and plots them, and run this script several times
+
+```{r}
+source("firstscript.R")
+```
+
+
+7.Put the numbers 31 to 60 in a vector named P and in a matrix with 6 rows and 5 columns named Q. 
+
+```{r}
+vecP=seq(from=31, to=60, by=1)
+vecP
+
+mat=matrix(data=vecP,ncol = 5, nrow = 6)
+mat
+```
+
+
+8.Make a script file which constructs three random normal vectors of length 100. Call these vectors x1, x2 and x3. Make a data frame called t with three columns (called a, b and c) containing respectively x1, x1+x2 and x1+x2+x3. Call the following functions for this data frame: plot(t) and sd(t). Can you understand the results? Rerun this script a few times
+
+```{r}
+source("6.3.R")
+```
+
+
+9.Add these lines to the script file of the previous section. Try to find out, either by experimenting or by using the help, what the meaning is of rgb, the last argument of rgb, lwd, pch, cex.
+
+```{r}
+source("6.4.R")
+```
+
+
+10.Make a file called tst1.txt in Notepad from the example in Figure 4 and store it in your working directory. Write a script to read it,to multiply the column called g by 5 and to store it as tst2.txt.
+
+```{r}
+d = data.frame(a = c(1,2,4,8,16,32), g = c(2,4,8,16,32,64), x=c(3,6,12,24,48,96))
+write.table(d, file="tst1.txt",row.names=FALSE)
+d2 = read.table(file="tst1.txt", header=TRUE)
+d2$g*5
+```
+
+
+11. Compute the mean of the square root of a vector of 100 random numbers. What happens?
+
+```{r}
+sqrt(mean(rnorm(100)))
+```
+
+
+12. Make a graph with on the x-axis: today, Sinterklaas 2014 and your next birthday and on the y-axis the number of presents you expect on each of these days. Tip: make two vectors first.
+
+```{r}
+dates=strptime( c("20160127","20161003"),format="%Y%m%d")
+gifts=c(3,5)
+dates
+gifts
+```
+
+
+13. Make a vector from 1 to 100. Make a for-loop which runs through the whole vector. Multiply the elements which are smaller than 5 and larger than 90 with 10 and the other elements with 0.1.
+
+```{r}
+vector=seq(from=1, to=100, by=1)
+d=c()
+for(i in 1:100)
+{
+  if(vector[i]<5)
+  {
+    d[i]=vector[i]*5;
+  }
+  else if(vector[i]>90)
+  {
+    d[i]=vector[i]*10;
+  }
+  else
+  {
+    d[i]=vector[i]*0.1;
+  }
+}
+d
+```
+
+
+14. Write a function for the previous ToDo, so that you can feed it any vector you like
+(as argument). Use a for-loop in the function to do the computation with each element. Use the standard R function length in the specification of the counter.
+
+```{r}
+fun= function(arg1,arg2 )
+{
+  vector[i]=arg1[i];
+  for(i in length(vector))
+  {
+    
+  }
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
